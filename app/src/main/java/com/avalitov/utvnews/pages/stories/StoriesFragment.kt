@@ -1,6 +1,10 @@
 package com.avalitov.utvnews.pages.stories
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -44,6 +48,16 @@ class StoriesFragment : Fragment() {
     }
 
     private fun setUpSubscriptions() {
+        viewModel.networkState.observe(viewLifecycleOwner) { isOnline ->
+            if (isOnline == false) {
+                Toast.makeText(
+                    activity,
+                    getString(R.string.stories_no_network),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+
         viewModel.stories.observe(viewLifecycleOwner) {
             if (it.isNullOrEmpty().not()) {
                 (binding.recycler.adapter as? StoriesAdapter)?.setItems(it)
