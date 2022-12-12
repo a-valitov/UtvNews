@@ -1,6 +1,7 @@
 package com.avalitov.utvnews.pages.stories
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.avalitov.utvnews.common.BaseViewModel
@@ -14,21 +15,22 @@ class StoriesViewModel(private val webRepo: WebRepository) : BaseViewModel() {
 
     var stories : MutableLiveData<List<Story>> = MutableLiveData()
 
+    // To show progress bar while loading and hide afterwards
+    val progressState: MutableLiveData<Boolean> = MutableLiveData()
+
     init {
         getStories()
     }
 
     private fun getStories() {
-        try {
-            viewModelScope.launch(Dispatchers.IO) {
-                val response = webRepo.loadStories()
-                withContext(Dispatchers.Main) {
-                    stories.value = response.detail.stories
-                }
+        progressState.value = true
+
+        viewModelScope.launch(Dispatchers.IO) {
+            val response = webRepo.loadStories()
+            withContext(Dispatchers.Main) {
+                stories.value = response.detail.stories
+                progressState.value = false
             }
-        } catch (e: Exception) {
-            Log.d(TAG, "Could not get stories from server.")
-            e.printStackTrace()
         }
     }
 

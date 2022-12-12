@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:textSize="11sp"
+            style="@style/Stories.Date"
             android:paddingHorizontal="@dimen/story_card_date_padding_horizontal"
             tools:text="@string/story_card_date_placeholder"
             />
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:textSize="14sp"
+            style="@style/Stories.Header"
             android:paddingHorizontal="@dimen/story_card_header_padding_horizontal"
             android:paddingBottom="@dimen/story_card_header_padding_bottom"
             tools:text = "@string/story_card_header_placeholder"

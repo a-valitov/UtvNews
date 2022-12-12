@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.avalitov.utvnews.R
 import com.avalitov.utvnews.databinding.FragmentStoriesBinding
 import com.avalitov.utvnews.pages.stories.adapter.StoriesAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -38,12 +39,7 @@ class StoriesFragment : Fragment() {
                 GRID_SPAN_COUNT,
                 RecyclerView.VERTICAL
             )
-
-            if (adapter !is StoriesAdapter) {
-                adapter = StoriesAdapter().apply {
-                    //onTrackClickListener = this@TracksFragment
-                }
-            }
+            adapter = StoriesAdapter()
         }
     }
 
@@ -54,10 +50,14 @@ class StoriesFragment : Fragment() {
             } else {
                 Toast.makeText(
                     activity,
-                    "No response has come from server.",
+                    getString(R.string.stories_no_response),
                     Toast.LENGTH_SHORT
                 ).show()
             }
+        }
+
+        viewModel.progressState.observe(viewLifecycleOwner) { state ->
+            binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
         }
     }
 

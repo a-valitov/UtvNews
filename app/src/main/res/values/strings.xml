@@ -4,4 +4,5 @@
     <!--  StoriesFragment  -->
     <string name="story_card_header_placeholder">Белка, спасая собственных детей, убила гималайского медведя! Ведётся следствие</string>
     <string name="story_card_date_placeholder">01 янв 1970</string>
+    <string name="stories_no_response">Не удалось получить ответ от сервера.</string>
 </resources>
