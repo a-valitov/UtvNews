@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  StoriesFragment  -->
+    <dimen name="stories_rv_padding_horizontal">4dp</dimen>
+    <dimen name="story_card_margin">8dp</dimen>
+    <dimen name="story_card_elevation">1dp</dimen>
+    <dimen name="story_card_corner_radius">16dp</dimen>
+    <dimen name="story_card_date_padding_horizontal">8dp</dimen>
+    <dimen name="story_card_header_padding_horizontal">4dp</dimen>
+    <dimen name="story_card_header_padding_bottom">4dp</dimen>
+</resources>
