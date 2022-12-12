@@ -6,8 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.avalitov.utvnews.R
 import com.avalitov.utvnews.data.model.Story
 
-class StoriesAdapter
-    : RecyclerView.Adapter<StoryHolder>() {
+class StoriesAdapter: RecyclerView.Adapter<StoryHolder>() {
 
     private var stories = listOf<Story>()
 
