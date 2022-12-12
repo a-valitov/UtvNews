@@ -5,14 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.avalitov.utvnews.common.extensions.asString
+import android.widget.Toast
 import com.avalitov.utvnews.databinding.FragmentStoriesBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class StoriesFragment : Fragment() {
 
     private lateinit var binding: FragmentStoriesBinding
-    private val viewModel by viewModel<StoriesVewModel>()
+    private val viewModel by viewModel<StoriesViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,8 +34,16 @@ class StoriesFragment : Fragment() {
     }
 
     private fun setUpSubscriptions() {
-        viewModel.timeState.observe(viewLifecycleOwner) {
-            binding.textHello.text = it.asString()
+        viewModel.stories.observe(viewLifecycleOwner) {
+            if (it.isNullOrEmpty().not()) {
+                binding.textHello.text = it.toString()
+            } else {
+                Toast.makeText(
+                    activity,
+                    "No response has come from server.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
     }
 }
