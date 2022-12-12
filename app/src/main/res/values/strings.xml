@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">UtvNews</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--  StoriesFragment  -->
+    <string name="story_card_header_placeholder">Белка, спасая собственных детей, убила гималайского медведя! Ведётся следствие</string>
+    <string name="story_card_date_placeholder">01 янв 1970</string>
 </resources>
