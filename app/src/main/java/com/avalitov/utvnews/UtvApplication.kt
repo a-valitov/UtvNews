@@ -2,6 +2,7 @@ package com.avalitov.utvnews
 
 import android.app.Application
 import android.content.Context
+import com.avalitov.utvnews.main.di.MainDependencies.mainModule
 import com.avalitov.utvnews.pages.stories.di.storiesModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -13,6 +14,7 @@ class UtvApplication : Application() {
         // Dependency injection starting point
         startKoin {
             modules(
+                mainModule,
                 storiesModule
             )
             androidContext(this@UtvApplication)

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Stories">
+        <item name="android:textColor">@color/light_gray</item>
+    </style>
+
+    <style name="Stories.Header">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Stories.Date">
+        <item name="android:textSize">11sp</item>
+        <item name="android:fontFamily">@font/inter_light</item>
+    </style>
+
+</resources>
